@@ -10,3 +10,5 @@ formatted_date=$(date +%m-%d-%y)
 # Now we will output the date to the terminal
 echo "The date and time is " $formatted_datetime
 echo "The date is " $formatted_date
+
+# echo Shell scripting is fun!!
