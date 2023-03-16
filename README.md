@@ -12,3 +12,7 @@ Screenshot : [Screenshot](https://github.com/Yan-Sav/TU858-OS-1/blob/test-branch
 ### Lab 5
 
 Screenshot: [Screenshot](https://github.com/Yan-Sav/TU858-OS-1/blob/test-branch/OS%20assignment%20q3%20lab5%20part1.png)
+
+### Lab 6
+
+Screenshot: [Screenshot](https://github.com/Yan-Sav/TU858-OS-1/blob/main/OS%20assignment%20q3%20lab6%20part3.png)
