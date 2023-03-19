@@ -1,30 +1,37 @@
 #!/bin/bash
+HISTFILE=~/.bash_history
+set -o history
 PS3="Choose your option: "
-cal=("List files" "Show free disk space " "Show system path " "Display command history " "Back up Files" "Exit")
+cal=("List files" "Show free disk space" "Show system path" "Display command history" "Back up Files" "Exit")
 select i in "${cal[@]}" ; do
     case $i in
         "List files")
-            read -p "Enter number 1:" v1
-            read -p "Enter number 2:" v2
-            echo "Sum of v1 and v2 is: $(($v1+$v2))"
+            yourfilenames=`ls ./*`
+            for eachfile in $yourfilenames
+            do
+                echo $eachfile
+            done
             ;;
         "Show free disk space")
-            read -p "Enter number 1:" v1
-            read -p "Enter number 2:" v2
-            echo "Sum of v1 and v2 is: $(($v1-$v2))"
+            df -H
             ;;
         "Show system path")
-            read -p "Enter number 1:" v1
-            read -p "Enter number 2:" v2
-            echo "Sum of v1 and v2 is: $(($v1/$v2))"
+            echo "$PATH"
             ;;
         "Display command history")
-            read -p "Enter number 1:" v1
-            read -p "Enter number 2:" v2
-            echo "Sum of v1 and v2 is: $(($v1*$v2))"
+            history | less
             ;;
         "Back up Files")
             echo "Backing up files."
+
+            read -p "Please Enter Path:" r1
+            parent=$(dirname "$r1")
+            cd "$parent"
+
+            mkdir BackupFolder
+
+            
+            
             ;;
         "Exit")
             echo "Quitting the menu."
