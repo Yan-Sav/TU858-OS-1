@@ -1,32 +1,50 @@
 #!/bin/bash
+HISTFILE=~/.bash_history
+set -o history
 PS3="Choose your option: "
-cal=("Sum" "Subt" "Div" "Mult" "Quit")
+cal=("List files" "Show free disk space" "Show system path" "Display command history" "Back up Files" "Exit")
 select i in "${cal[@]}" ; do
     case $i in
-        "Sum")
-            read -p "Enter number 1:" v1
-            read -p "Enter number 2:" v2
-            echo "Sum of v1 and v2 is: $(($v1+$v2))"
+
+        "List files")
+            yourfilenames=`ls ./*`
+
+            for eachfile in $yourfilenames
+            do
+                echo $eachfile
+            done
             ;;
-        "Subt")
-            read -p "Enter number 1:" v1
-            read -p "Enter number 2:" v2
-            echo "Sum of v1 and v2 is: $(($v1-$v2))"
+
+        "Show free disk space")
+            df -H
             ;;
-        "Div")
-            read -p "Enter number 1:" v1
-            read -p "Enter number 2:" v2
-            echo "Sum of v1 and v2 is: $(($v1/$v2))"
+
+        "Show system path")
+            pwd
             ;;
-        "Mult")
-            read -p "Enter number 1:" v1
-            read -p "Enter number 2:" v2
-            echo "Sum of v1 and v2 is: $(($v1*$v2))"
+
+        "Display command history")
+            history | less
             ;;
-        "Quit")
-            echo "Quitting the menu"
+
+        "Back up Files")
+            echo "Backing up files."
+
+            read -p "Please Enter Path:" r1
+            parent=$(dirname "$r1")
+            cd "$parent"
+
+            mkdir BackupFolder
+
+            cp -r $parent /workspaces/TU858-OS-1/BackupFolder
+            
+            ;;
+
+        "Exit")
+            echo "Quitting the menu."
             break
             ;;
+
         *)
             echo "invalid option $REPLY"
             ;;
