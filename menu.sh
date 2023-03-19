@@ -20,7 +20,7 @@ select i in "${cal[@]}" ; do
             ;;
 
         "Show system path")
-            echo "$PATH"
+            pwd
             ;;
 
         "Display command history")
@@ -44,7 +44,7 @@ select i in "${cal[@]}" ; do
             echo "Quitting the menu."
             break
             ;;
-            
+
         *)
             echo "invalid option $REPLY"
             ;;
